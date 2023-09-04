@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width;initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Temperature Converter</title>
+</head>
+
+<body>
+
+    <div id="main">
+        <h2>Temperature Converter</h2>
+
+        <img alt="Free Thermometer Icon" class="icon"
+            src="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256"
+            srcset="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256 1x">
+
+            <span class="degree">°F</span>
+        <input type="number" placeholder="Enter the Temperature in Fahrenheit " class="in" id="first">
+
+
+        <br>
+        <img alt="Free Thermometer Icon" class="icon icon-mid"
+            src="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256"
+            srcset="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256 1x">
+       
+            <span class="degree">°C</span>
+        <input type="number" placeholder="Enter the Temperature in Celsius " class="in" id="second">
+
+        <br>
+        <img alt="Free Thermometer Icon" class="icon icon-last"
+            src="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256"
+            srcset="https://cdn.iconscout.com/icon/free/png-256/free-thermometer-6236832-5111669.png?f=webp&amp;w=256 1x">
+       
+            <span class="degree">°K</span>
+        <input type="number" placeholder="Enter the Temperature in Kelvin " class="in" id="third">
+
+
+        <script>
+            let celsius =
+                document.getElementById('second');
+            let fahrenheit =
+                document.getElementById('first');
+            let kelvin =
+                document.getElementById('third');
+            celsius.oninput = function () {
+                let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+                fahrenheit.value = parseFloat(f.toFixed(2));
+
+                let k = (parseFloat(celsius.value) + 273.15);
+                kelvin.value = parseFloat(k.toFixed(2));
+            }
+            fahrenheit.oninput = function () {
+                let c = ((parseFloat(
+                    fahrenheit.value) - 32) * 5) / 9;
+                celsius.value = parseFloat(c.toFixed(2));
+
+                let k = (parseFloat(
+                    fahrenheit.value) - 32) * 5 / 9 + 273.15;
+                kelvin.value = parseFloat(k.toFixed(2));
+            }
+            kelvin.oninput = function () {
+                let f = (parseFloat(
+                    kelvin.value) - 273.15) * 9 / 5 + 32;
+                fahrenheit.value = parseFloat(f.toFixed(2));
+
+                let c = (parseFloat(kelvin.value) - 273.15);
+                celsius.value = parseFloat(c.toFixed(2));
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>
